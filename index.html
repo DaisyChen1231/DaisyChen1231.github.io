@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meijing (Daisy) Chen | Web Designer Portfolio</title>
+<meta name="description" content="Portfolio of Meijing (Daisy) Chen - web design, UX/UI, WordPress, and digital content experience." />
+<meta property="og:title" content="Meijing (Daisy) Chen | Web Designer Portfolio" />
+<meta property="og:description" content="Portfolio of Meijing (Daisy) Chen - web design, UX/UI, WordPress, and digital content experience." />
+<meta property="og:url" content="https://DaisyChen1231.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://DaisyChen1231.github.io/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Meijing (Daisy) Chen | Web Designer Portfolio" />
+<meta name="twitter:description" content="Portfolio of Meijing (Daisy) Chen - web design, UX/UI, WordPress, and digital content experience." />
+<meta name="twitter:image" content="https://DaisyChen1231.github.io/og-cover.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23231c15'/><text x='16' y='23' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='%23c8793a' text-anchor='middle'>MC</text></svg>">
+
+<style>
+:root {
+  --bg: #faf6f0;
+  --bg2: #f3ece1;
+  --bg3: #e9dfd1;
+  --fg: #1c1208;
+  --fg2: #6b5440;
+  --fg3: #b09a82;
+  --accent: oklch(62% 0.19 42);
+  --accent2: oklch(52% 0.19 42);
+  --border: rgba(180,120,60,0.15);
+  --card: rgba(255,255,255,0.7);
+  --card-hover: rgba(255,255,255,0.9);
+  --shadow: 0 8px 32px rgba(100,60,20,0.10);
+  --radius: 12px;
+}
+[data-theme="dark"] {
+  --bg: #1a1410;
+  --bg2: #231c15;
+  --bg3: #2d241a;
+  --fg: #f5ede0;
+  --fg2: #b09a82;
+  --fg3: #6b5440;
+  --accent: oklch(68% 0.19 42);
+  --accent2: oklch(58% 0.19 42);
+  --border: rgba(180,120,60,0.18);
+  --card: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,200,120,0.07);
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 60px;
+  background: rgba(250,246,240,0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s;
+}
+[data-theme="dark"] nav { background: rgba(26,20,16,0.82); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent); letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--fg2); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-controls { display: flex; align-items: center; gap: 12px; }
+.btn-icon { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--fg2); cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+.lang-toggle { display: flex; gap: 4px; background: var(--bg3); border-radius: 8px; padding: 3px; }
+.lang-btn { padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--fg3); transition: all 0.2s; letter-spacing: 0.05em; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+.lang-btn.active { background: var(--accent); color: #000; }
+
+/* ── HERO ── */
+#hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+canvas#particles { position: absolute; inset: 0; z-index: 0; }
+.hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: center; max-width: 1100px; width: 100%; padding: 0 40px; }
+.hero-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 99px; }
+.hero-name { font-size: clamp(40px, 6vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+.hero-name span { color: var(--accent); }
+.hero-typing { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--fg2); margin-bottom: 28px; min-height: 24px; }
+.cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.hero-desc { font-size: 15px; line-height: 1.75; color: var(--fg2); max-width: 520px; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { padding: 12px 28px; background: var(--accent); color: #000; border: none; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+.btn-outline { padding: 12px 28px; background: transparent; border: 1px solid var(--border); color: var(--fg); border-radius: 8px; font-weight: 500; font-size: 14px; cursor: pointer; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Avatar — uses CSS initials by default; replace with <img> if you have a photo */
+.hero-avatar { display: flex; align-items: center; justify-content: center; }
+.avatar-wrap { position: relative; width: 260px; height: 260px; }
+.avatar-wrap::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid var(--accent); opacity: 0.3; animation: pulse-ring 3s ease-in-out infinite; }
+.avatar-wrap::after { content: ''; position: absolute; inset: -20px; border-radius: 50%; border: 1px solid var(--accent); opacity: 0.1; animation: pulse-ring 3s ease-in-out infinite 0.5s; }
+@keyframes pulse-ring { 0%,100%{transform:scale(1);opacity:0.3} 50%{transform:scale(1.04);opacity:0.15} }
+.avatar-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid var(--border); filter: grayscale(10%); }
+.avatar-initials { width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--border); background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 72px; font-weight: 700; color: var(--accent); letter-spacing: -0.04em; font-family: 'Space Grotesk', sans-serif; }
+.avatar-badge { position: absolute; bottom: 8px; right: 8px; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+
+.hero-scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--fg3); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; animation: float 2s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); }
+
+/* ── SECTIONS ── */
+section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+.section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 48px; }
+.section-title span { color: var(--accent); }
+
+/* ── NEWS ── */
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item { display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(20px); transition: all 0.5s; }
+.news-item.visible { opacity: 1; transform: none; }
+.news-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--fg3); padding-top: 3px; }
+.news-text { font-size: 15px; line-height: 1.6; color: var(--fg2); }
+.news-text strong { color: var(--fg); }
+
+/* ── PROJECTS ── */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.project-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.3s; cursor: pointer; opacity: 0; transform: translateY(24px); }
+.project-card.visible { opacity: 1; transform: none; }
+.project-card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-4px); box-shadow: var(--shadow); }
+.project-img-placeholder { width: 100%; height: 180px; background: var(--bg3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative; overflow: hidden; }
+.project-img-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,0.015) 8px, rgba(255,255,255,0.015) 16px); }
+.project-img-placeholder-icon { font-size: 32px; z-index: 1; }
+.project-img-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg3); z-index: 1; }
+.project-cover { width: 100%; height: 180px; object-fit: cover; display: block; background: var(--bg3); }
+.project-badge { position: absolute; top: 12px; left: 12px; background: var(--accent); color: #000; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+.project-body { padding: 20px; }
+.project-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.project-sub { font-size: 12px; color: var(--fg3); margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
+.project-desc { font-size: 13px; color: var(--fg2); line-height: 1.6; margin-bottom: 16px; }
+.project-video { width: 100%; display: block; margin: 0 0 16px; border-radius: 8px; border: 1px solid var(--border); background: #000; }
+.project-links { display: flex; gap: 8px; }
+.project-link { font-size: 12px; color: var(--accent); text-decoration: none; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.project-link:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); }
+.tl-item { position: relative; padding-bottom: 40px; opacity: 0; transform: translateX(-16px); transition: all 0.5s; }
+.tl-item.visible { opacity: 1; transform: none; }
+.tl-item::before { content: ''; position: absolute; left: -36px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); transition: background 0.3s; }
+.tl-item:hover::before { background: var(--accent); }
+.tl-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 4px; letter-spacing: 0.05em; }
+.tl-role { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+.tl-company { font-size: 14px; color: var(--fg2); margin-bottom: 6px; }
+.tl-desc { font-size: 13px; color: var(--fg3); line-height: 1.6; }
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.edu-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.3s; opacity: 0; transform: translateY(20px); }
+.edu-card.visible { opacity: 1; transform: none; }
+.edu-card:hover { border-color: var(--accent); background: var(--card-hover); }
+.edu-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 8px; }
+.edu-school { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.edu-degree { font-size: 13px; color: var(--fg2); }
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.skill-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; opacity: 0; transform: translateY(20px); transition: all 0.4s; }
+.skill-group.visible { opacity: 1; transform: none; }
+.skill-group:hover { border-color: var(--accent); }
+.skill-cat { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag { font-size: 12px; padding: 4px 10px; background: var(--bg3); color: var(--fg2); border-radius: 6px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
+
+/* ── CONTACT ── */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-info p { color: var(--fg2); line-height: 1.75; margin-bottom: 28px; font-size: 15px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link { display: flex; align-items: center; gap: 12px; color: var(--fg2); text-decoration: none; font-size: 14px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s; }
+.contact-link:hover { border-color: var(--accent); color: var(--accent); }
+.contact-link-icon { width: 20px; text-align: center; color: var(--accent); }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 12px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
+.form-input, .form-textarea { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: var(--fg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; transition: border-color 0.2s; outline: none; }
+.form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-submit { padding: 12px; background: var(--accent); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; margin-top: 4px; }
+.form-submit:hover { background: var(--accent2); }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; color: var(--fg3); font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+footer span { color: var(--accent); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; text-align: center; }
+  .hero-avatar { order: -1; }
+  .hero-actions { justify-content: center; }
+  .hero-desc { margin: 0 auto 36px; }
+  section { padding: 60px 20px; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ── GITHUB MODAL ── */
+#github-modal { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 20px; }
+#github-modal.open { display: flex; }
+.github-panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; width: 100%; max-width: 640px; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow); }
+.github-panel-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 24px 24px 16px; position: sticky; top: 0; background: var(--bg2); border-radius: 16px 16px 0 0; border-bottom: 1px solid var(--border); }
+.github-repos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px 24px; }
+@media (max-width: 520px) { .github-repos-grid { grid-template-columns: 1fr; } }
+.github-repo-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s; }
+.github-repo-card:hover { border-color: var(--accent); background: var(--card-hover); }
+.github-repo-name { font-size: 14px; font-weight: 600; color: var(--fg); font-family: 'JetBrains Mono', monospace; }
+.github-repo-desc { font-size: 12px; color: var(--fg2); line-height: 1.5; flex: 1; }
+.github-repo-meta { display: flex; gap: 8px; align-items: center; }
+.github-lang-badge { font-size: 11px; padding: 2px 8px; background: var(--bg3); color: var(--accent); border-radius: 4px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
+.github-stars { font-size: 11px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; }
+.github-repo-links { display: flex; gap: 6px; margin-top: 4px; }
+.github-link-code { font-size: 12px; color: var(--accent); text-decoration: none; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.github-link-code:hover { border-color: var(--accent); }
+.github-link-live { font-size: 12px; color: #000; text-decoration: none; padding: 4px 10px; background: var(--accent); border-radius: 6px; font-weight: 600; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.github-link-live:hover { background: var(--accent2); }
+.github-panel-footer { text-align: center; padding: 0 24px 20px; }
+.github-footer-link { font-size: 12px; color: var(--fg3); text-decoration: none; font-family: 'JetBrains Mono', monospace; transition: color 0.2s; }
+.github-footer-link:hover { color: var(--accent); }
+.github-status { text-align: center; padding: 40px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">mc<span style="color:var(--fg3)">.</span>design</div>
+  <ul class="nav-links">
+    <li><a href="#news" data-i18n="nav_news">News</a></li>
+    <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+    <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+    <li><a href="#education" data-i18n="nav_education">Education</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="btn-icon" onclick="toggleTheme()" title="Toggle theme" id="theme-btn">*</button>
+  </div>
+</nav>
+
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-tag" data-i18n="hero_tag">UX/UI</div>
+      <h1 class="hero-name">Meijing<br><span>Chen.</span></h1>
+      <div class="hero-typing"><span id="typing-text"></span><span class="cursor"></span></div>
+      <p class="hero-desc" data-i18n="hero_desc">Detail-oriented IT and digital design graduate with experience in UX/UI support, website management, and digital content coordination. Skilled in responsive web design, WordPress development, and user-focused interface optimisation across multilingual digital platforms.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#" onclick="downloadResume()" data-i18n="btn_resume">Download Resume</a>
+        <a class="btn-outline" href="#contact" data-i18n="btn_contact">Get in Touch</a>
+        <button type="button" class="btn-outline" onclick="openGithubModal()" data-i18n="btn_github">GitHub</button>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-wrap">
+        <img src="avatar.jpg" alt="Meijing Chen graduation portrait">
+        <div class="avatar-badge" data-i18n="avatar_badge">@ University of Canberra</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span data-i18n="scroll_hint">scroll</span>
+  </div>
+</section>
+
+<section id="news">
+  <div class="section-label" data-i18n="section_news">Latest</div>
+  <h2 class="section-title reveal">What's <span>New</span></h2>
+  <div class="news-list">
+    <div class="news-item"><div class="news-date">2026.03</div><div class="news-text" data-i18n="news_1">Started a <strong>UI/UX Design Internship</strong> at Vatee Pty Ltd, supporting WordPress, Elementor, responsive web design, and digital content updates.</div></div>
+    <div class="news-item"><div class="news-date">2025.11</div><div class="news-text" data-i18n="news_2">Joined <strong>UniLodge Australia</strong> as a Customer Service Coordinator, supporting residents, administration, and stakeholder communication.</div></div>
+    <div class="news-item"><div class="news-date">2025.07</div><div class="news-text" data-i18n="news_3">Graduated from the <strong>University of Canberra</strong> with a Master of International Technology and Systems and received the Dean's Excellence Award.</div></div>
+    <div class="news-item"><div class="news-date">2025.03</div><div class="news-text" data-i18n="news_4">Built <strong>CommuniqElevate</strong>, an AI-powered language assessment platform for listening, speaking, reading, and writing feedback.</div></div>
+    <div class="news-item"><div class="news-date">2023.07</div><div class="news-text" data-i18n="news_5">Started the <strong>Master of International Technology and Systems</strong> at the University of Canberra.</div></div>
+    <div class="news-item"><div class="news-date">2022.07</div><div class="news-text" data-i18n="news_6">Started the <strong>Master of Financial Management</strong> at the Australian National University.</div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label" data-i18n="section_projects">Work</div>
+  <h2 class="section-title reveal">Selected <span>Projects</span></h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div style="position:relative;">
+        <img class="project-cover" src="vatee-redesign-cover.png" alt="VATEE Growth Journey fintech website redesign preview">
+        <div class="project-badge">FinTech Website</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj2_title">VATEE Website Design</div>
+        <div class="project-sub">Vatee Pty Ltd - UI/UX, WordPress, Elementor, WPML</div>
+        <div class="project-desc" data-i18n="proj2_desc">Redesigned and optimized VATEE's bilingual Growth Journey page into a modern FinTech timeline experience. Focused on visual storytelling, responsive layout refinement, brand consistency, mobile readability, and bilingual content management across WordPress, Elementor, WPML, and custom CSS.</div>
+        <div class="project-links">
+          <a class="project-link" href="https://vateefx.com/vatee-history/" target="_blank" rel="noopener noreferrer">Live Website</a>
+          <a class="project-link" href="#contact">Contact for details</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div style="position:relative;">
+        <img class="project-cover" src="communiqelevate-cover.png" alt="CommuniqElevate web dashboard interface preview">
+        <div class="project-badge">Web + AI Platform</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj1_title">CommuniqElevate - AI-Powered Language Assessment Platform</div>
+        <div class="project-sub">University of Canberra - Canberra, Australia - Mar 2025 - Jun 2025</div>
+        <div class="project-desc" data-i18n="proj1_desc">Led the web interface design and implementation for an AI-powered language assessment platform, creating a responsive frontend, teacher dashboard, student progress tracking views, and automated report UI. The demo below shows the platform flow and makes the web development work easier to see at a glance.</div>
+        <video class="project-video" controls preload="metadata" poster="communiqelevate-cover.png">
+          <source src="CommuniqElevate_Demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/DaisyChen1231/CommuniqElevate" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="project-link" href="CommuniqElevate_Demo.mp4" target="_blank" rel="noopener noreferrer">Demo Video</a>
+          <a class="project-link" href="CommuniqElevate_AI_Platform.pptx" target="_blank" rel="noopener noreferrer">Slides</a>
+          <a class="project-link" href="CommuniqElevate_Team_Poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div style="position:relative;">
+        <img class="project-cover" src="design-system-cover.png" alt="Design system and responsive UI optimization preview">
+        <div class="project-badge">UX System</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj3_title">Design System &amp; Responsive UI Optimization</div>
+        <div class="project-sub">UX/UI Methods - Components, Accessibility, Responsive Design</div>
+        <div class="project-desc" data-i18n="proj3_desc">Built a practical UI optimization framework for bilingual web pages, including reusable component patterns, responsive spacing rules, typography hierarchy, accessibility checks, and mobile-first CSS refinements. This project shows how I turn real implementation work into scalable UX decisions.</div>
+        <div class="project-links">
+          <a class="project-link" href="#contact">Contact for details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label" data-i18n="section_exp">Career</div>
+  <h2 class="section-title reveal">Experience <span>Timeline</span></h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-period">Mar 2026 - Present</div><div class="tl-role" data-i18n="exp1_role">UI/UX Design Intern &amp; Web Design Assistant</div><div class="tl-company">Vatee Pty Ltd - Digital Marketing &amp; Web Operations</div><div class="tl-desc" data-i18n="exp1_desc">Support UX/UI design, WordPress and Elementor website optimisation, responsive layout updates, and bilingual digital content publishing across company websites and social channels.</div></div>
+    <div class="tl-item"><div class="tl-period">Nov 2025 - Present</div><div class="tl-role" data-i18n="exp2_role">Customer Service Coordinator</div><div class="tl-company">UniLodge Australia</div><div class="tl-desc" data-i18n="exp2_desc">Deliver frontline support and administration for a diverse resident community, including enquiries, check-in processes, maintenance coordination, payment records, and stakeholder communication.</div></div>
+    <div class="tl-item"><div class="tl-period">May 2024 - Present</div><div class="tl-role" data-i18n="exp3_role">Assistant Manager</div><div class="tl-company">Thistle Thiosk - Canberra</div><div class="tl-desc" data-i18n="exp3_desc">Manage daily retail operations, customer service, cash handling, stock coordination, and customer issue resolution in a fast-paced community environment.</div></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-label" data-i18n="section_edu">Academia</div>
+  <h2 class="section-title reveal">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card"><div class="edu-period">Jul 2023 - Jul 2025</div><div class="edu-school" data-i18n="edu1_school">University of Canberra</div><div class="edu-degree" data-i18n="edu1_degree">Master of International Technology and Systems - GPA 6.31/7.00 - Dean's Excellence Award</div></div>
+    <div class="edu-card"><div class="edu-period">Jul 2022 - Jun 2023</div><div class="edu-school" data-i18n="edu2_school">Australian National University</div><div class="edu-degree" data-i18n="edu2_degree">Master of Financial Management - GPA 5.75/7.00</div></div>
+    <div class="edu-card"><div class="edu-period">Sep 2018 - Jun 2022</div><div class="edu-school" data-i18n="edu3_school">Henan University</div><div class="edu-degree" data-i18n="edu3_degree">Bachelor of Economics in Finance - Average 89.04/100 - Rank 10/110</div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label" data-i18n="section_skills">Tools</div>
+  <h2 class="section-title reveal">Skills &amp; <span>Stack</span></h2>
+  <div class="skills-grid">
+    <div class="skill-group"><div class="skill-cat" data-i18n="skill_cat1">UX/UI &amp; Web Design</div><div class="skill-tags"><span class="skill-tag">Wireframing</span><span class="skill-tag">Responsive Web Design</span><span class="skill-tag">User Experience Optimisation</span></div></div>
+    <div class="skill-group"><div class="skill-cat" data-i18n="skill_cat2">Web Tools</div><div class="skill-tags"><span class="skill-tag">WordPress</span><span class="skill-tag">Elementor</span><span class="skill-tag">HTML/CSS</span></div></div>
+    <div class="skill-group"><div class="skill-cat" data-i18n="skill_cat3">Design &amp; Content</div><div class="skill-tags"><span class="skill-tag">Figma</span><span class="skill-tag">Canva</span><span class="skill-tag">Website Publishing</span><span class="skill-tag">Brand Consistency</span></div></div>
+    <div class="skill-group"><div class="skill-cat" data-i18n="skill_cat4">Data &amp; Business</div><div class="skill-tags"><span class="skill-tag">Excel</span><span class="skill-tag">Power BI</span><span class="skill-tag">Financial Records</span></div></div>
+    <div class="skill-group"><div class="skill-cat" data-i18n="skill_cat5">Collaboration</div><div class="skill-tags"><span class="skill-tag">Stakeholder Communication</span><span class="skill-tag">Cross-cultural Communication</span><span class="skill-tag">Time Management</span></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label" data-i18n="section_contact">Connect</div>
+  <h2 class="section-title reveal">Get in <span>Touch</span></h2>
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <p data-i18n="contact_desc">I am actively seeking Web Designer opportunities where I can combine UX/UI thinking, responsive website design, WordPress development, and clear digital communication. Feel free to reach out if you would like to connect.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:chenmeijing374@gmail.com"><span class="contact-link-icon">@</span>chenmeijing374@gmail.com</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/meijing-chen-daisy/" target="_blank"><span class="contact-link-icon">in</span>linkedin.com/in/meijing-chen-daisy</a>
+        <a class="contact-link" href="https://github.com/DaisyChen1231" target="_blank"><span class="contact-link-icon">GH</span>github.com/DaisyChen1231</a>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-group"><label class="form-label" data-i18n="form_name">Name</label><input class="form-input" type="text" placeholder="Your name" id="f-name"></div>
+      <div class="form-group"><label class="form-label" data-i18n="form_email">Email</label><input class="form-input" type="email" placeholder="your@email.com" id="f-email"></div>
+      <div class="form-group"><label class="form-label" data-i18n="form_msg">Message</label><textarea class="form-textarea" placeholder="Hello, I would like to connect..." id="f-msg"></textarea></div>
+      <button class="form-submit" onclick="sendMsg()" data-i18n="form_send">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Meijing (Daisy) Chen</span> - Designed with intention - <span>2026</span>
+</footer>
+
+<!-- GITHUB MODAL -->
+<div id="github-modal" onclick="handleGithubModalBackdrop(event)">
+  <div class="github-panel" role="dialog" aria-modal="true" aria-labelledby="github-modal-title">
+    <div class="github-panel-header">
+      <div>
+        <div class="section-label" data-i18n="github_modal_label">Open Source</div>
+        <h2 id="github-modal-title" style="font-size:22px;font-weight:700;letter-spacing:-0.02em;" data-i18n="github_modal_title">GitHub Repos</h2>
+      </div>
+      <button class="btn-icon" onclick="closeGithubModal()" aria-label="Close" style="flex-shrink:0;">✕</button>
+    </div>
+    <div id="github-repos-body">
+      <div class="github-status" data-i18n="github_loading">Loading...</div>
+    </div>
+    <div class="github-panel-footer">
+      <a class="github-footer-link" href="https://github.com/DaisyChen1231" target="_blank" data-i18n="github_modal_footer">View all on GitHub ↗</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── i18n ──
+// Every data-i18n="key" in the HTML maps to a key here.
+const i18n = {
+  en: {
+    nav_news: 'News', nav_projects: 'Projects', nav_experience: 'Experience', nav_education: 'Education', nav_contact: 'Contact',
+    hero_tag: 'UX/UI',
+    hero_desc: 'Detail-oriented IT and digital design graduate with experience in UX/UI support, website management, and digital content coordination. Skilled in responsive web design, WordPress development, and user-focused interface optimisation across multilingual digital platforms.',
+    btn_resume: 'Download Resume', btn_contact: 'Get in Touch', btn_github: 'GitHub',
+    avatar_badge: '@ University of Canberra', scroll_hint: 'scroll',
+    section_news: 'Latest', section_projects: 'Work', section_exp: 'Career', section_edu: 'Academia', section_skills: 'Tools', section_contact: 'Connect',
+    news_1: 'Started a <strong>UI/UX Design Internship</strong> at Vatee Pty Ltd, supporting WordPress, Elementor, responsive web design, and digital content updates.',
+    news_2: 'Joined <strong>UniLodge Australia</strong> as a Customer Service Coordinator, supporting residents, administration, and stakeholder communication.',
+    news_3: 'Graduated from the <strong>University of Canberra</strong> with a Master of International Technology and Systems and received the Dean\'s Excellence Award.',
+    news_4: 'Built <strong>CommuniqElevate</strong>, an AI-powered language assessment platform for listening, speaking, reading, and writing feedback.',
+    news_5: 'Started the <strong>Master of International Technology and Systems</strong> at the University of Canberra.',
+    news_6: 'Started the <strong>Master of Financial Management</strong> at the Australian National University.',
+    proj1_title: 'CommuniqElevate - AI-Powered Language Assessment Platform',
+    proj1_desc: 'Led the web interface design and implementation for an AI-powered language assessment platform, creating a responsive frontend, teacher dashboard, student progress tracking views, and automated report UI. The demo below shows the platform flow and makes the web development work easier to see at a glance.',
+    proj2_title: 'VATEE Website Design',
+    proj2_desc: "Redesigned and optimized VATEE's bilingual Growth Journey page into a modern FinTech timeline experience. Focused on visual storytelling, responsive layout refinement, brand consistency, mobile readability, and bilingual content management across WordPress, Elementor, WPML, and custom CSS.",
+    proj3_title: 'Design System & Responsive UI Optimization',
+    proj3_desc: 'Built a practical UI optimization framework for bilingual web pages, including reusable component patterns, responsive spacing rules, typography hierarchy, accessibility checks, and mobile-first CSS refinements. This project shows how I turn real implementation work into scalable UX decisions.',
+    exp1_role: 'UI/UX Design Intern & Web Design Assistant', exp1_desc: 'Support UX/UI design, WordPress and Elementor website optimisation, responsive layout updates, and bilingual digital content publishing across company websites and social channels.',
+    exp2_role: 'Customer Service Coordinator', exp2_desc: 'Deliver frontline support and administration for a diverse resident community, including enquiries, check-in processes, maintenance coordination, payment records, and stakeholder communication.',
+    exp3_role: 'Assistant Manager', exp3_desc: 'Manage daily retail operations, customer service, cash handling, stock coordination, and customer issue resolution in a fast-paced community environment.',
+    edu1_school: 'University of Canberra', edu1_degree: 'Master of International Technology and Systems - GPA 6.31/7.00 - Dean\'s Excellence Award',
+    edu2_school: 'Australian National University', edu2_degree: 'Master of Financial Management - GPA 5.75/7.00',
+    edu3_school: 'Henan University', edu3_degree: 'Bachelor of Economics in Finance - Average 89.04/100 - Rank 10/110',
+    skill_cat1: 'UX/UI & Web Design', skill_cat2: 'Web Tools', skill_cat3: 'Design & Content', skill_cat4: 'Data & Business', skill_cat5: 'Collaboration',
+    contact_desc: 'I am actively seeking Web Designer opportunities where I can combine UX/UI thinking, responsive website design, WordPress development, and clear digital communication. Feel free to reach out if you would like to connect.',
+    form_name: 'Name', form_email: 'Email', form_msg: 'Message', form_send: 'Send Message',
+    typing_roles: ['UX/UI Designer', 'Web Designer', 'WordPress Developer', 'Financial Assistant'],
+    github_modal_label: 'Open Source', github_modal_title: 'GitHub Repos', github_modal_footer: 'View all on GitHub', github_repo_code: 'Code', github_repo_live: 'Live', github_loading: 'Loading...', github_error: 'Failed to load repos.'
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = 'en';
+  document.documentElement.setAttribute('data-lang', 'en');
+  const t = i18n.en;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  startTyping();
+  if (_githubReposCache) renderGithubRepos();
+}
+
+// ── TYPING ──
+let typingTimer;
+function startTyping() {
+  clearTimeout(typingTimer);
+  const el = document.getElementById('typing-text');
+  const roles = i18n[currentLang].typing_roles;
+  let ri = 0, ci = 0, deleting = false;
+  el.textContent = '';
+  function tick() {
+    const word = roles[ri];
+    if (!deleting) {
+      el.textContent = word.slice(0, ci + 1); ci++;
+      if (ci === word.length) { deleting = true; typingTimer = setTimeout(tick, 1800); return; }
+    } else {
+      el.textContent = word.slice(0, ci - 1); ci--;
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+    }
+    typingTimer = setTimeout(tick, deleting ? 60 : 90);
+  }
+  tick();
+}
+
+// ── THEME ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-btn').textContent = isDark ? '☾' : '☀';
+  localStorage.setItem('tw-theme', isDark ? 'light' : 'dark');
+}
+
+// ── PARTICLES ──
+function initParticles() {
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, dots = [];
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    dots = Array.from({length: 80}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+      r: Math.random()*1.5+0.5
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const accent = isDark ? '210,130,60' : '180,100,40';
+    dots.forEach(d => {
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+      if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${accent},0.5)`; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize(); draw();
+}
+
+// ── SCROLL REVEAL ──
+// Add class="reveal" to any block-level element to animate it in on scroll.
+function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .news-item, .project-card, .tl-item, .edu-card, .skill-group').forEach(el => obs.observe(el));
+}
+
+document.querySelectorAll('.project-card').forEach((card, i) => { card.style.transitionDelay = (i * 0.1) + 's'; });
+document.querySelectorAll('.tl-item').forEach((item, i) => { item.style.transitionDelay = (i * 0.07) + 's'; });
+
+// ── CONTACT FORM ──
+function sendMsg() {
+  const name = document.getElementById('f-name').value;
+  const email = document.getElementById('f-email').value;
+  const msg = document.getElementById('f-msg').value;
+  if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
+  const subject = encodeURIComponent(`Message from ${name} via portfolio`);
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+  window.open(`mailto:chenmeijing374@gmail.com?subject=${subject}&body=${body}`);
+}
+
+// ── RESUME DOWNLOAD ──
+function downloadResume() {
+  const a = document.createElement('a');
+  a.href = 'Meijing_Chen_Resume.pdf';
+  a.download = 'Meijing_Chen_Resume.pdf';
+  a.click();
+}
+
+// ── GITHUB MODAL ──
+let _githubReposCache = null;
+
+function openGithubModal() {
+  document.getElementById('github-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', handleGithubEsc);
+  if (!_githubReposCache) loadGithubRepos();
+}
+function closeGithubModal() {
+  document.getElementById('github-modal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', handleGithubEsc);
+}
+function handleGithubModalBackdrop(e) {
+  if (e.target === document.getElementById('github-modal')) closeGithubModal();
+}
+function handleGithubEsc(e) { if (e.key === 'Escape') closeGithubModal(); }
+
+async function loadGithubRepos() {
+  const body = document.getElementById('github-repos-body');
+  const t = i18n[currentLang];
+  body.innerHTML = `<div class="github-status">${t.github_loading}</div>`;
+  try {
+    const res = await fetch('https://api.github.com/users/DaisyChen1231/repos?sort=updated&per_page=30');
+    if (!res.ok) throw new Error('API error');
+    const repos = await res.json();
+    _githubReposCache = repos.filter(r => r.name !== 'DaisyChen1231.github.io' && !r.fork);
+    renderGithubRepos();
+  } catch (err) {
+    body.innerHTML = `<div class="github-status">${t.github_error}</div>`;
+  }
+}
+
+function getLiveUrl(repo) {
+  if (repo.homepage) {
+    try { const u = new URL(repo.homepage); if (u.protocol === 'https:' || u.protocol === 'http:') return repo.homepage; } catch (_) {}
+  }
+  if (repo.has_pages) return `https://DaisyChen1231.github.io/${repo.name}`;
+  return null;
+}
+
+function renderGithubRepos() {
+  if (!_githubReposCache) return;
+  const t = i18n[currentLang];
+  const body = document.getElementById('github-repos-body');
+  const grid = document.createElement('div');
+  grid.className = 'github-repos-grid';
+  _githubReposCache.forEach(repo => {
+    const liveUrl = getLiveUrl(repo);
+    const card = document.createElement('div');
+    card.className = 'github-repo-card';
+    card.innerHTML = `
+      <div class="github-repo-name">${repo.name}</div>
+      <div class="github-repo-desc">${repo.description || '—'}</div>
+      <div class="github-repo-meta">
+        ${repo.language ? `<span class="github-lang-badge">${repo.language}</span>` : ''}
+        ${repo.stargazers_count > 0 ? `<span class="github-stars">⭐ ${repo.stargazers_count}</span>` : ''}
+      </div>
+      <div class="github-repo-links">
+        <a class="github-link-code" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${t.github_repo_code}</a>
+        ${liveUrl ? `<a class="github-link-live" href="${liveUrl}" target="_blank" rel="noopener noreferrer">${t.github_repo_live}</a>` : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+  body.innerHTML = '';
+  body.appendChild(grid);
+}
+
+// ── INIT ──
+const savedTheme = localStorage.getItem('tw-theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.getElementById('theme-btn').textContent = savedTheme === 'dark' ? '☀' : '☾';
+
+setLang('en');
+initParticles();
+initReveal();
+</script>
+
+</body>
+</html>
+
