@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meijing (Daisy) Chen | Accounting, Finance & Data Portfolio</title>
+  <meta name="description" content="Accounting portfolio of Meijing (Daisy) Chen, focused on financial administration, invoice processing, account reconciliation, Excel analysis, and business support." />
+  <meta property="og:title" content="Meijing (Daisy) Chen | Accounting, Finance & Data Portfolio" />
+  <meta property="og:description" content="Accounting and finance graduate based in Canberra, seeking Assistant Accountant, Finance Administrator, and Graduate Accountant opportunities." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23231c15'/><text x='16' y='22' font-family='Arial,sans-serif' font-size='13' font-weight='700' fill='%23d5a35f' text-anchor='middle'>MC</text></svg>" />
+  <style>
+    :root {
+      --bg: #faf6f0;
+      --bg2: #f3ece1;
+      --bg3: #e9dfd1;
+      --fg: #1c1208;
+      --fg2: #6b5440;
+      --fg3: #b09a82;
+      --accent: oklch(66% 0.13 82);
+      --accent2: oklch(56% 0.13 82);
+      --border: rgba(175, 132, 65, 0.18);
+      --card: rgba(255, 255, 255, 0.7);
+      --card-hover: rgba(255, 255, 255, 0.9);
+      --shadow: 0 8px 32px rgba(100, 60, 20, 0.1);
+      --radius: 12px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #171410;
+      --bg2: #211d17;
+      --bg3: #2b251d;
+      --fg: #f6efe2;
+      --fg2: #b8a890;
+      --fg3: #746858;
+      --accent: oklch(72% 0.13 82);
+      --accent2: oklch(62% 0.13 82);
+      --border: rgba(213, 163, 95, 0.2);
+      --card: rgba(255, 255, 255, 0.045);
+      --card-hover: rgba(255, 215, 148, 0.075);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      padding: 0 40px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(250, 246, 240, 0.82);
+      backdrop-filter: blur(16px);
+      transition: background 0.4s;
+    }
+
+    [data-theme="dark"] nav { background: rgba(23, 20, 16, 0.82); }
+    .nav-logo { font-family: "JetBrains Mono", monospace; font-size: 14px; color: var(--accent); letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--fg2);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-controls { display: flex; align-items: center; gap: 12px; }
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--fg2);
+      cursor: pointer;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+
+    #hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    canvas#particles { position: absolute; inset: 0; z-index: 0; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      align-items: center;
+      gap: 80px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 40px;
+    }
+    .hero-tag {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero-name {
+      margin-bottom: 20px;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-typing {
+      min-height: 24px;
+      margin-bottom: 28px;
+      color: var(--fg2);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+    }
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      margin-left: 2px;
+      background: var(--accent);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .hero-desc {
+      max-width: 560px;
+      margin-bottom: 36px;
+      color: var(--fg2);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-primary { border: none; background: var(--accent); color: #000; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--fg); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-avatar { display: flex; align-items: center; justify-content: center; }
+    .avatar-wrap { position: relative; width: 260px; height: 260px; }
+    .avatar-wrap::before,
+    .avatar-wrap::after {
+      position: absolute;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      content: "";
+      animation: pulse-ring 3s ease-in-out infinite;
+    }
+    .avatar-wrap::before { inset: -8px; opacity: 0.3; }
+    .avatar-wrap::after { inset: -20px; opacity: 0.1; animation-delay: 0.5s; }
+    @keyframes pulse-ring { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.04); opacity: 0.15; } }
+    .avatar-initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      background: var(--bg3);
+      color: var(--accent);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+    .avatar-badge {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: var(--accent);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--fg3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin-bottom: 48px;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-title span { color: var(--accent); }
+
+    .news-list { display: flex; flex-direction: column; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s;
+    }
+    .news-item.visible { opacity: 1; transform: none; }
+    .news-date {
+      padding-top: 3px;
+      color: var(--fg3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+    .news-text { color: var(--fg2); font-size: 15px; line-height: 1.6; }
+    .news-text strong { color: var(--fg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.3s;
+    }
+    .project-card.visible { opacity: 1; transform: none; }
+    .project-card:hover {
+      border-color: var(--accent);
+      background: var(--card-hover);
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+    .project-img-placeholder {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: var(--bg3);
+    }
+    .project-img-placeholder::before {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255, 255, 255, 0.02) 8px, rgba(255, 255, 255, 0.02) 16px);
+      content: "";
+    }
+    .project-img-placeholder-icon { z-index: 1; font-size: 32px; }
+    .project-img-label {
+      z-index: 1;
+      color: var(--fg3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .project-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .project-body { padding: 20px; }
+    .project-title { margin-bottom: 6px; font-size: 16px; font-weight: 600; }
+    .project-sub {
+      margin-bottom: 10px;
+      color: var(--fg3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+    .project-desc { margin-bottom: 16px; color: var(--fg2); font-size: 13px; line-height: 1.6; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .project-link {
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      content: "";
+    }
+    .tl-item {
+      position: relative;
+      padding-bottom: 40px;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: all 0.5s;
+    }
+    .tl-item.visible { opacity: 1; transform: none; }
+    .tl-item::before {
+      position: absolute;
+      top: 6px;
+      left: -36px;
+      width: 8px;
+      height: 8px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background: var(--bg);
+      content: "";
+      transition: background 0.3s;
+    }
+    .tl-item:hover::before { background: var(--accent); }
+    .tl-period {
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+    .tl-role { margin-bottom: 2px; font-size: 16px; font-weight: 600; }
+    .tl-company { margin-bottom: 6px; color: var(--fg2); font-size: 14px; }
+    .tl-desc { color: var(--fg3); font-size: 13px; line-height: 1.6; }
+
+    .edu-grid,
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .edu-card,
+    .skill-group {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s;
+    }
+    .edu-card { padding: 24px; }
+    .skill-group { padding: 20px; }
+    .edu-card.visible,
+    .skill-group.visible { opacity: 1; transform: none; }
+    .edu-card:hover,
+    .skill-group:hover { border-color: var(--accent); background: var(--card-hover); }
+    .edu-period {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+    }
+    .edu-school { margin-bottom: 4px; font-size: 15px; font-weight: 600; }
+    .edu-degree { color: var(--fg2); font-size: 13px; line-height: 1.55; }
+    .skill-cat {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg3);
+      color: var(--fg2);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-info p {
+      margin-bottom: 28px;
+      color: var(--fg2);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--fg2);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link-icon { width: 20px; color: var(--accent); text-align: center; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label {
+      color: var(--fg3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .form-input,
+    .form-textarea {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      background: var(--bg2);
+      color: var(--fg);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus,
+    .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { min-height: 120px; resize: vertical; }
+    .form-submit {
+      margin-top: 4px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #000;
+      cursor: pointer;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .form-submit:hover { background: var(--accent2); }
+
+    footer {
+      padding: 32px 40px;
+      border-top: 1px solid var(--border);
+      color: var(--fg3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      text-align: center;
+    }
+    footer span { color: var(--accent); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 92px 20px 80px;
+        text-align: center;
+      }
+      .hero-avatar { order: -1; }
+      .avatar-wrap { width: 220px; height: 220px; }
+      .hero-actions { justify-content: center; }
+      .hero-desc { margin: 0 auto 36px; }
+      section { padding: 60px 20px; }
+      .news-item { grid-template-columns: 1fr; gap: 8px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="nav-logo" href="#hero">mc.accounting</a>
+    <ul class="nav-links">
+      <li><a href="#news">News</a></li>
+      <li><a href="#projects">Highlights</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button class="btn-icon" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">LIGHT</button>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-tag">Accounting | Finance | Data</div>
+        <h1 class="hero-name">Meijing<br><span>(Daisy)</span><br>Chen.</h1>
+        <div class="hero-typing"><span id="typing-text"></span><span class="cursor"></span></div>
+        <p class="hero-desc">
+          Accounting and finance graduate based in Canberra, with experience in financial administration,
+          invoice processing, account reconciliation, customer service, and Excel-based data analysis.
+          Currently progressing toward CPA Australia certification and seeking Assistant Accountant,
+          Finance Administrator, or Graduate Accountant opportunities.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="Meijing-Chen-Resume-Accounting.pdf" download>Download Resume</a>
+          <a class="btn-outline" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-avatar" aria-label="Avatar initials">
+        <div class="avatar-wrap">
+          <div class="avatar-initials">MC</div>
+          <div class="avatar-badge">@ Canberra</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="section-label">Latest</div>
+    <h2 class="section-title reveal">What's <span>New</span></h2>
+    <div class="news-list">
+      <div class="news-item">
+        <div class="news-date">2026.03</div>
+        <div class="news-text">Joined <strong>Vatee Pty Ltd</strong> as Digital Operations & Web Support Assistant.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.11</div>
+        <div class="news-text">Started Customer Service Coordinator role at <strong>UniLodge Australia</strong>, supporting resident, payment, and financial administration workflows.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.07</div>
+        <div class="news-text">Completed Master of International Technology and Systems at the <strong>University of Canberra</strong> with Dean's Excellence Award.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2023.07</div>
+        <div class="news-text">Started Master study at the <strong>University of Canberra</strong>, building data, systems, and business intelligence capability.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2023.06</div>
+        <div class="news-text">Completed Master of Financial Management at the <strong>Australian National University</strong>.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2022.09</div>
+        <div class="news-text">Completed Accounting Internship at <strong>KPMG</strong>, supporting audit documentation, reconciliation, and financial data review.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Work</div>
+    <h2 class="section-title reveal">Selected Work <span>Highlights</span></h2>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-img-placeholder">
+          <div class="project-badge">Audit</div>
+          <div class="project-img-placeholder-icon">AP</div>
+          <div class="project-img-label">Working Papers</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">KPMG Audit Support</h3>
+          <div class="project-sub">Accounting & Audit Department | China</div>
+          <p class="project-desc">Supported senior accountants and auditors with financial data processing, account reconciliation, working papers, invoice review, bank statement checks, and discrepancy follow-up.</p>
+          <div class="project-links">
+            <span class="project-link">Reconciliation</span>
+            <span class="project-link">Audit Docs</span>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-img-placeholder">
+          <div class="project-badge">AP/AR</div>
+          <div class="project-img-placeholder-icon">AR</div>
+          <div class="project-img-label">Financial Admin</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">UniLodge Financial Administration</h3>
+          <div class="project-sub">Customer Service Coordinator | Canberra</div>
+          <p class="project-desc">Maintained accurate resident and financial records, including invoice processing, rental payment tracking, payment enquiries, and support for accounts receivable and payable functions.</p>
+          <div class="project-links">
+            <span class="project-link">Invoices</span>
+            <span class="project-link">Payments</span>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-img-placeholder">
+          <div class="project-badge">Data</div>
+          <div class="project-img-placeholder-icon">XL</div>
+          <div class="project-img-label">Excel Reporting</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Excel & Data Reporting</h3>
+          <div class="project-sub">Finance, records, and operational data</div>
+          <p class="project-desc">Applied Excel-based data organisation and analysis to support financial records, report preparation, documentation accuracy, and operational decision-making across fast-paced service environments.</p>
+          <div class="project-links">
+            <span class="project-link">Excel</span>
+            <span class="project-link">Power BI</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-label">Career</div>
+    <h2 class="section-title reveal">Experience <span>Timeline</span></h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">Mar 2026 - Present</div>
+        <div class="tl-role">Digital Operations & Web Support Assistant</div>
+        <div class="tl-company">Vatee Pty Ltd | Canberra</div>
+        <div class="tl-desc">Supported website operations, digital content updates, online platform maintenance, administrative coordination, digital records, and multilingual business information management.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Nov 2025 - Present</div>
+        <div class="tl-role">Customer Service Coordinator</div>
+        <div class="tl-company">UniLodge Australia | Canberra</div>
+        <div class="tl-desc">Provided customer service and administrative support while maintaining accurate resident and financial records, supporting invoice processing, rental payment tracking, and payment enquiries.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Jun 2022 - Sep 2022</div>
+        <div class="tl-role">Accounting Intern</div>
+        <div class="tl-company">KPMG | Accounting & Audit Department</div>
+        <div class="tl-desc">Assisted with financial data processing, account reconciliation, working papers, invoice and expense review, bank statement checks, Excel reporting, and audit documentation.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-label">Academia</div>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="edu-grid">
+      <article class="edu-card">
+        <div class="edu-period">Jul 2023 - Jul 2025</div>
+        <div class="edu-school">University of Canberra</div>
+        <div class="edu-degree">Master of International Technology and Systems | GPA 6.31/7.00 | Dean's Excellence Award</div>
+      </article>
+      <article class="edu-card">
+        <div class="edu-period">Jul 2022 - Jun 2023</div>
+        <div class="edu-school">Australian National University</div>
+        <div class="edu-degree">Master of Financial Management | GPA 5.75/7.00</div>
+      </article>
+      <article class="edu-card">
+        <div class="edu-period">Sep 2018 - Jun 2022</div>
+        <div class="edu-school">Henan University</div>
+        <div class="edu-degree">Bachelor of Economics in Finance | Average 89.04/100 | Rank 10/110</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">Tools</div>
+    <h2 class="section-title reveal">Skills & <span>Stack</span></h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-cat">Accounting & Finance</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AP/AR</span>
+          <span class="skill-tag">Invoice Processing</span>
+          <span class="skill-tag">Bank Reconciliation</span>
+          <span class="skill-tag">Financial Records</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Systems & Reporting</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">MYOB</span>
+          <span class="skill-tag">Xero</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Administration</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Entry</span>
+          <span class="skill-tag">Documentation</span>
+          <span class="skill-tag">Confidential Records</span>
+          <span class="skill-tag">Office Coordination</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Professional Strengths</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Attention to Detail</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">Time Management</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">Connect</div>
+    <h2 class="section-title reveal">Get in <span>Touch</span></h2>
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <p>
+          I am actively seeking Assistant Accountant, Finance Administrator, and Graduate Accountant opportunities.
+          If you have a suitable role or would like to discuss my background, please feel free to reach out.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:chenmeijing374@gmail.com">
+            <span class="contact-link-icon">@</span>
+            chenmeijing374@gmail.com
+          </a>
+          <a class="contact-link" href="tel:+61416591178">
+            <span class="contact-link-icon">T</span>
+            0416 591 178
+          </a>
+          <a class="contact-link" href="Meijing-Chen-Resume-Accounting.pdf" download>
+            <span class="contact-link-icon">CV</span>
+            Download accounting resume
+          </a>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label class="form-label" for="f-name">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" id="f-name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-email">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com" id="f-email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-msg">Message</label>
+          <textarea class="form-textarea" placeholder="Hello, I'd like to connect..." id="f-msg"></textarea>
+        </div>
+        <button class="form-submit" onclick="sendMsg()">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Meijing (Daisy) Chen</span> | Accounting, Finance & Data | <span>2026</span>
+  </footer>
+
+  <script>
+    const typingRoles = ["Accounting Graduate", "Finance Administrator", "Excel Analyst"];
+    let typingTimer;
+
+    function startTyping() {
+      clearTimeout(typingTimer);
+      const el = document.getElementById("typing-text");
+      let roleIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+      el.textContent = "";
+
+      function tick() {
+        const word = typingRoles[roleIndex];
+        if (!deleting) {
+          el.textContent = word.slice(0, charIndex + 1);
+          charIndex += 1;
+          if (charIndex === word.length) {
+            deleting = true;
+            typingTimer = setTimeout(tick, 1800);
+            return;
+          }
+        } else {
+          el.textContent = word.slice(0, charIndex - 1);
+          charIndex -= 1;
+          if (charIndex === 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % typingRoles.length;
+          }
+        }
+        typingTimer = setTimeout(tick, deleting ? 60 : 90);
+      }
+
+      tick();
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute("data-theme") === "dark";
+      html.setAttribute("data-theme", isDark ? "light" : "dark");
+      document.getElementById("theme-btn").textContent = isDark ? "DARK" : "LIGHT";
+      localStorage.setItem("mc-theme", isDark ? "light" : "dark");
+    }
+
+    function initParticles() {
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      let width;
+      let height;
+      let dots = [];
+
+      function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        dots = Array.from({ length: 80 }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.5 + 0.5
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        const accent = isDark ? "213,163,95" : "160,116,50";
+        dots.forEach((dot) => {
+          dot.x += dot.vx;
+          dot.y += dot.vy;
+          if (dot.x < 0) dot.x = width;
+          if (dot.x > width) dot.x = 0;
+          if (dot.y < 0) dot.y = height;
+          if (dot.y > height) dot.y = 0;
+          ctx.beginPath();
+          ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${accent},0.5)`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", resize);
+      resize();
+      draw();
+    }
+
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".reveal, .news-item, .project-card, .tl-item, .edu-card, .skill-group").forEach((el) => observer.observe(el));
+    }
+
+    function sendMsg() {
+      const name = document.getElementById("f-name").value;
+      const email = document.getElementById("f-email").value;
+      const msg = document.getElementById("f-msg").value;
+      if (!name || !email || !msg) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      const subject = encodeURIComponent(`Message from ${name} via portfolio`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+      window.open(`mailto:chenmeijing374@gmail.com?subject=${subject}&body=${body}`);
+    }
+
+    document.querySelectorAll(".project-card").forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    document.querySelectorAll(".tl-item").forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.07}s`;
+    });
+
+    const savedTheme = localStorage.getItem("mc-theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    document.getElementById("theme-btn").textContent = savedTheme === "dark" ? "LIGHT" : "DARK";
+    startTyping();
+    initParticles();
+    initReveal();
+  </script>
+</body>
+</html>
